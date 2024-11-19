@@ -16,9 +16,10 @@ write_words(10, 'example1.txt')
 write_words(30, 'example2.txt')
 write_words(200, 'example3.txt')
 write_words(100, 'example4.txt')
-
+print(f'Время выполнения функции {time.time() - start_time} секунд')
 
 threads = []
+thread_start_time = time.time()
 thread1 = threading.Thread(target=write_words, args=(10, 'example5.txt'))
 threads.append(thread1)
 thread2 = threading.Thread(target=write_words, args=(30, 'example6.txt'))
@@ -31,11 +32,7 @@ threads.append(thread4)
 for thread in threads:
     thread.start()
 
-end_time = time.time()
-print(f'Время выполнения функции и потоков {end_time - start_time} секунд')
-
 for thread in threads:
     thread.join()
 
-end_time = time.time()
-print(f'Время выполнения функции и потоков {end_time - start_time} секунд')
+print(f'Время выполнения потоков {time.time() - thread_start_time} секунд')
