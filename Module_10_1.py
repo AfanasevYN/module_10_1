@@ -1,7 +1,5 @@
-from time import sleep
 import threading
 import time
-from turtledemo.penrose import start
 
 
 def write_words(word_count, file_name):
